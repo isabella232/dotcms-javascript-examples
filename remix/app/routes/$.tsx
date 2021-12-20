@@ -18,7 +18,7 @@ type IndexData = {
 // to the component that renders it.
 // https://remix.run/api/conventions#loader
 export let loader: LoaderFunction = async ({ params }) => {
-  const res = await fetch(`https://demo.dotcms.com/api/v1/page/render/${params['*']}`, {
+  const res = await fetch(`https://demo.dotcms.com/api/v1/page/render/${params['*'] || 'index'}`, {
     "headers": {
       "Authorization": `Bearer ${process.env.DOTCMS_API_KEY}`
     },
